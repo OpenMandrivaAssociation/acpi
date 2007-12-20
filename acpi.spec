@@ -12,6 +12,7 @@ Patch1: acpi-0.09-on_ac_power.patch.bz2
 Patch2: acpi-0.07-fix-README.patch.bz2
 License: GPL
 Group: System/Servers
+BuildRoot: %{_tmppath}/%{name}-buildroot
 Url: http://grahame.angrygoats.net/acpi.shtml
 Requires(post):  rpm-helper
 Requires(preun): rpm-helper
