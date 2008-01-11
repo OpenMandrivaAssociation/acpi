@@ -1,6 +1,6 @@
 %define name acpi
 %define version 0.09
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Displays information on ACPI devices
 Name: %{name}
