@@ -29,11 +29,11 @@ ACPI systems, including battery and thermal information.
 %make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
