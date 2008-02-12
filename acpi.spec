@@ -31,7 +31,6 @@ ACPI systems, including battery and thermal information.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
-install -d -m755 $RPM_BUILD_ROOT/%{_mandir}/man1/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
