@@ -8,8 +8,8 @@ Version: %{version}
 Release: %{release}
 Source0: http://grahame.angrygoats.net/source/acpi/%{name}-%{version}.tar.bz2
 Source1: acpi.init
-Patch1: acpi-0.09-on_ac_power.patch.bz2
-Patch2: acpi-0.07-fix-README.patch.bz2
+Patch1: acpi-0.09-on_ac_power.patch
+Patch2: acpi-0.07-fix-README.patch
 License: GPL
 Group: System/Servers
 BuildRoot: %{_tmppath}/%{name}-buildroot
