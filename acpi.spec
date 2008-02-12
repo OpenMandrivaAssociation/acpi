@@ -1,21 +1,18 @@
 %define name acpi
 %define version 0.09
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: Displays information on ACPI devices
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://grahame.angrygoats.net/source/acpi/%{name}-%{version}.tar.bz2
-Source1: acpi.init
 Patch1: acpi-0.09-on_ac_power.patch
 Patch2: acpi-0.07-fix-README.patch
 License: GPL
 Group: System/Servers
 BuildRoot: %{_tmppath}/%{name}-buildroot
 Url: http://grahame.angrygoats.net/acpi.shtml
-Requires(post):  rpm-helper
-Requires(preun): rpm-helper
 Requires: dmidecode
 
 %description
@@ -35,19 +32,11 @@ ACPI systems, including battery and thermal information.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 install -d -m755 $RPM_BUILD_ROOT/%{_mandir}/man1/
-install -D -m755 %{SOURCE1} $RPM_BUILD_ROOT/%_initrddir/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-%_post_service %{name}
-
-%preun
-%_preun_service  %{name}
-
 %files
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %_initrddir/%{name}
 %{_bindir}/*
