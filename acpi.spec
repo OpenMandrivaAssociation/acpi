@@ -1,6 +1,6 @@
 %define name acpi
 %define version 0.09
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: Displays information on ACPI devices
 Name: %{name}
@@ -34,6 +34,9 @@ rm -rf %{buildroot}
 
 %clean
 rm -rf %{buildroot}
+
+%triggerpostun -- acpi < 0.09-4
+rm -f /etc/rc.d/*/{K,S}*acpi
 
 %files
 %defattr(-,root,root)
