@@ -1,19 +1,13 @@
-%define name acpi
-%define version 0.09
-%define release %mkrel 7
-
-Summary: Displays information on ACPI devices
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://grahame.angrygoats.net/source/acpi/%{name}-%{version}.tar.bz2
-Patch1: acpi-0.09-on_ac_power.patch
-Patch2: acpi-0.07-fix-README.patch
-License: GPL
-Group: System/Servers
-BuildRoot: %{_tmppath}/%{name}-buildroot
-Url: http://grahame.angrygoats.net/acpi.shtml
-Requires: dmidecode
+Summary:	Displays information on ACPI devices
+Name:		acpi
+Version:	1.4
+Release:	%mkrel 1
+License:	GPLv2+
+Group:		System/Servers
+Url:		http://sourceforge.net/projects/acpiclient/
+Source0:	http://downloads.sourceforge.net/project/acpiclient/acpiclient/%{version}/%{name}-%{version}.tar.gz
+Requires:	dmidecode
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Attempts to replicate the functionality of the 'old' apm command on
@@ -21,12 +15,10 @@ ACPI systems, including battery and thermal information.
 
 %prep
 %setup -q
-%patch1 -p1 -b .on_ac_power
-%patch2 -p1 -b .readme
 
 %build
 %configure2_5x
-%make CFLAGS="$RPM_OPT_FLAGS"
+%make CFLAGS="%{optflags}"
 
 %install
 rm -rf %{buildroot}
@@ -42,3 +34,4 @@ rm -f /etc/rc.d/*/{K,S}*acpi
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
 %{_bindir}/*
+%{_mandir}/man1/%{name}*
