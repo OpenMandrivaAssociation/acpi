@@ -1,7 +1,7 @@
 Summary:	Displays information on ACPI devices
 Name:		acpi
 Version:	1.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Servers
 Url:		http://sourceforge.net/projects/acpiclient/
