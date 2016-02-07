@@ -1,7 +1,7 @@
 Summary:	Displays information on ACPI devices
 Name:		acpi
 Version:	1.7
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		System/Servers
 Url:		http://sourceforge.net/projects/acpiclient/
@@ -16,17 +16,13 @@ ACPI systems, including battery and thermal information.
 %setup -q
 
 %build
-%configure2_5x
+%configure
 %make CFLAGS="%{optflags}"
 
 %install
 %makeinstall
 
-%triggerpostun -- acpi < 0.09-4
-rm -f /etc/rc.d/*/{K,S}*acpi
-
 %files
 %doc AUTHORS ChangeLog README
 %{_bindir}/*
 %{_mandir}/man1/%{name}*
-
