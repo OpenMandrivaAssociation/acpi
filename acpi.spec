@@ -13,14 +13,14 @@ Attempts to replicate the functionality of the 'old' apm command on
 ACPI systems, including battery and thermal information.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure
-%make CFLAGS="%{optflags}"
+%make_build CFLAGS="%{optflags}"
 
 %install
-%makeinstall
+%make_install
 
 %files
 %doc AUTHORS ChangeLog README
